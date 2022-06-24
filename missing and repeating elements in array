@@ -1,0 +1,52 @@
+int *findTwoElement(int *arr, int n) {
+        // code here
+        int x=0;
+        for(int i=1;i<=n;i++){
+            x=x^i;
+        }
+        int y=0;
+        for(int i=0;i<n;i++){
+            y=y^arr[i];
+        }
+        x=x^y;
+          //cout<<x<<endl;
+        int bits=(log2(x)+1);
+       // cout<<"bits "<<bits<<endl;
+        bits--;
+        
+        
+        int rightmostbit=x>>bits;
+          //cout<<"of x "<<rightmostbit<<endl;
+         // now x is xor of missing  and repeating number
+         int bucket1=0,bucket2=0;
+         for(int i=0;i<n;i++){
+             
+             int temp=arr[i]>>(bits);
+             
+          if(temp%2!=0)bucket1=bucket1^arr[i];
+          else bucket2=bucket2^arr[i];
+          
+         }
+         for(int i=1;i<=n;i++){
+             int temp=i>>(bits);
+            
+             if(temp%2!=0){bucket1=bucket1^i;}
+             else bucket2=bucket2^i;
+             
+         }
+         // now check which among bucket1 and bucket2 is repeating
+         int count=0;
+         for(int i=0;i<n;i++){
+             if(bucket1==arr[i])count++;
+         }
+         int *ans=new int[2];
+         if(count>1){ans[0]=bucket1;
+                       ans[1]=bucket2;}
+                       else {
+                           ans[0]=bucket2;
+                           ans[1]=bucket1;
+                       }
+         return ans;
+        
+    }
+    
