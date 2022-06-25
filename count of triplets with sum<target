@@ -1,0 +1,21 @@
+	long long countTriplets(long long arr[], int n, long long sum)
+	{
+	    // Your code goes here
+	    sort(arr,arr+n);
+	    int count=0;
+	    for(long long i=0;i<n;i++){
+	        int l=i+1,h=n-1;
+	        while(l<h){// apply two pointer approach 
+	            
+	            if(arr[i]+arr[l]+arr[h]<sum){
+	                count+=h-l;
+	                l++;
+	            }
+	            else {
+	                h--;
+	                
+	            }
+	        }
+	    }
+	    return count;
+	}
