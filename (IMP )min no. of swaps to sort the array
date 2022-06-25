@@ -1,3 +1,7 @@
+ approach :::  firstly make a copy sorted array  and try to reach to sorted array from given array(means swaps number which are at wrong position)
+ store the given position of element in map and swap with element that should be here actually(means after sorting)
+
+ 
  void swap(int *a,int *b){
         int temp=*a;
           *a=*b;
