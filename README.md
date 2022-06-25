@@ -15,3 +15,5 @@ https://practice.geeksforgeeks.org/problems/merge-k-sorted-arrays/1#
 https://practice.geeksforgeeks.org/problems/minimum-sum4058/1#
 
 https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1#
+
+https://leetcode.com/problems/subarray-sum-equals-k/
