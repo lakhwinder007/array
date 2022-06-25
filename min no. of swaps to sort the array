@@ -1,0 +1,33 @@
+ void swap(int *a,int *b){
+        int temp=*a;
+          *a=*b;
+          *b=temp;
+    }
+	int minSwaps(vector<int>&nums)
+	{
+	    // Code here
+	    int n=nums.size();
+	    vector<int>sorted=nums;
+	    map<int,int>mp;
+	    sort(sorted.begin(),sorted.end());
+	    for(int i=0;i<n;i++){
+	        mp[nums[i]]=i;
+	    }
+	    int count=0;
+	    for(int i=0;i<n;i++){
+	        if(sorted[i]!=nums[i]){
+	            int a=i;
+	            int b=mp[sorted[i]];
+	            mp[nums[i]]=mp[sorted[i]];
+	            mp[sorted[i]]=i;
+	            swap(&nums[a],&nums[b]);
+	            
+	            count++;
+	        }
+	    }
+	   // for(int i=0;i<n;i++){
+	   //     cout<<nums[i]<<" ";
+	   // }
+	   // cout<<endl;
+	    return count;
+	}
