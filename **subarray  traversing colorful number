@@ -1,0 +1,26 @@
+For Given Number N find if its COLORFUL number or not
+
+Return 0/1
+Suppose, a number 3245 can be broken into parts like 3 2 4 5 32 24 45 324 245. 
+And this number is a COLORFUL number, since product of every digit of a contiguous subsequence is different
+
+
+
+
+
+int Solution::colorful(int a) {
+    string s=to_string(a);
+    unordered_map<int,int>mp;
+    for(int i=0;i<s.size();i++){
+        int temp=1;
+        for(int j=i;j<s.size();j++){
+            temp=((int)s[j]-'0')*temp;
+           // cout<<temp<<endl;
+            if(mp.find(temp)!=mp.end()){
+                return 0;
+            }
+            mp[temp]++;
+        }
+    }
+    return 1;
+}
