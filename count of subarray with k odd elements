@@ -1,0 +1,13 @@
+int Solution::solve(vector<int> &a, int b) {
+    int n=a.size();
+    int prefix[n+1]={0};
+    int odd=0;
+    int ans=0;
+    for(int i=0;i<n;i++){
+        prefix[odd]++;
+        if(a[i]%2!=0)odd++;
+        if(odd>=b)ans+=prefix[odd-b];
+    }
+   
+    return ans;
+}
