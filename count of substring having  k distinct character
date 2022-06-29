@@ -1,0 +1,31 @@
+ long long atmostkdistinct(string s,int k){
+      if(s.size()==0||k==0)return 0;
+      //	unordered_map<char,int>mp; dont use map it will give tle
+      vector<int>mp(26,0);
+      int count=0; // to store count of non zero ele in vector
+    	int i=0,j=0;
+    	long long ans=0;
+    	while(j<s.size()){
+    	    if(mp[s[j]-'a']==0)count++;
+    	    mp[s[j]-'a']++;
+    	   
+    	    if(count>k)
+    	    {
+    	        while(count>k){
+    	            mp[s[i]-'a']--;
+    	            if(mp[s[i]-'a']==0)count--;
+    	            i++;
+    	        }
+    	      
+    	        
+    	    }
+    	      ans=ans+j-i+1;
+    	    j++;
+    	}  
+    	return ans;
+  }
+    long long int substrCount (string s, int k) {
+    	//code here.
+    	return atmostkdistinct(s,k)-atmostkdistinct(s,k-1);
+    
+    }
