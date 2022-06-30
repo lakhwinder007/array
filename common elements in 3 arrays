@@ -1,0 +1,20 @@
+ vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
+        {
+            
+            //choose min of n1,n2,n3 as loop will go till min 
+            vector<int>ans;
+            int a=0,b=0,c=0;
+            // bool first=A[a]<=B[b];
+            // bool second=B[b]<=C[c];
+            // bool third=A[a]<=C[c];
+            while(a<n1&&b<n2&&c<n3){
+            if(A[a]==B[b]&&B[b]==C[c]){
+                if(ans.size()==0||ans[ans.size()-1]!=A[a])ans.push_back(A[a]);//to handle duplicate cases
+            a++,b++,c++;}
+           else if(A[a]<=B[b]&&A[a]<=C[c])a++;
+           else if(C[c]<=A[a]&&C[c]<=B[b])c++;
+           else if(B[b]<=A[a]&&B[b]<=C[c])b++;
+            
+        }
+        return ans;
+    }
