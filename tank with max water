@@ -1,0 +1,14 @@
+long long maxArea(long long a[], int n)
+{
+    // Your code goes here
+    int i=0,j=n-1;
+    int ans=0;
+    int mn=0;
+    while(i<=j){
+        mn=min(a[i],a[j]);
+        ans=max(ans,(j-i)*mn);
+        if(a[i]==mn)i++;
+        else j--;
+    }
+    return ans;
+}
