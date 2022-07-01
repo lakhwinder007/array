@@ -1,3 +1,5 @@
+it is O(n) solution try dry run 
+
 int minJumps(int arr[], int n){
        
         
