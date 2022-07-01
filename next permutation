@@ -1,0 +1,23 @@
+ vector<int> nextPermutation(int n, vector<int> arr){
+        // code here
+        vector<int>ans;
+        int i;
+        for( i=n-2;i>=0;i--){
+            if(arr[i+1]>arr[i]){
+                break;
+            }
+        }
+        if(i<0){
+            reverse(arr.begin(),arr.end());
+            ans=arr;
+            return ans;
+        }
+        for(int j=n-1;j>=i;j--){
+            
+            if(arr[j]>arr[i]){swap(arr[i],arr[j]);
+                     break;}
+        }
+        reverse(arr.begin()+i+1,arr.end());
+        ans=arr;
+        return ans;
+    }
