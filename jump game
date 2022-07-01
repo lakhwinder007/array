@@ -1,0 +1,9 @@
+   int canReach(int a[], int n) {
+        
+        int reachable=0;
+        for(int i=0;i<n;i++){
+            if(i>reachable)return 0;
+            reachable=max(reachable,a[i]+i);
+        }
+        return 1;
+    }
