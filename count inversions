@@ -1,0 +1,56 @@
+void merge(vector<long long>&arr,long long n,long long l,long long m,long long h,long long &ans){
+        long long temp[n];                    //      declare temp inside 
+       long long i=l,j=m+1,k=l;
+       while(i<=m&&j<=h){
+           if(arr[i]<=arr[j]){           // dont forget to add = here (mistake)
+               temp[k]=arr[i];
+               i++;
+               k++;
+             }
+           else {        
+               ans+=m-i+1;
+               temp[k]=arr[j];
+               j++;
+               k++;
+             }       
+       }
+       while(i<=m){
+            temp[k]=arr[i];
+               i++;
+               k++;
+       }
+       while(j<=h){
+             
+            temp[k]=arr[j];
+               j++;
+               k++;
+       }
+      for(long long i=l;i<=h;i++){                // limits from l to h    
+          arr[i]=temp[i];
+          //<<arr[i]<<" ";
+      }
+      //cout<<endl;
+    }
+    void mergesort(vector<long long>&arr,long long n, long long l,long long h,long long &ans){
+        if(l<h){
+            int m=(l+h)/2;
+            mergesort(arr,n,l,m,ans);
+            mergesort(arr,n,m+1,h,ans);
+                merge(arr,n,l,m,h,ans);
+            
+        }
+    }
+    long long int inversionCount(long long a[], long long n)
+    {
+        // Your Code Here
+        vector<long long>arr;
+        for(int i=0;i<n;i++){
+            arr.push_back(a[i]);
+        }
+        long long ans=0;
+        mergesort(arr,n,0,n-1,ans);        //   pass arr as vector to pass by reference
+        // for(int i=0;i<n;i++){
+        //     cout<<arr[i]<<" ";
+        // }
+        return ans;
+    }
