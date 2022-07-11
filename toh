@@ -1,0 +1,16 @@
+
+     void solve(int n, int from, int to, int aux,int &ans) {
+        if(n>0){
+         solve(n-1,from,aux,to,ans);
+           ans++;
+           cout<<"move disk "<<n<<" from rod "<<from<<" to rod "<<to<<endl;
+          solve(n-1,aux,to ,from,ans);
+            
+        }
+        
+    }
+    long long toh(int n, int from, int to, int aux) {
+        int ans=0;
+     solve(n,from,to,aux,ans);
+      return ans;
+    }
