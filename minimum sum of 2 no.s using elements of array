@@ -1,0 +1,19 @@
+string solve(int arr[], int n){
+        sort(arr,arr+n);
+        string ans;
+        int carry=0;
+        for(int i=n-1;i>=0;i=i-2){
+            int sum=arr[i];
+            if(i>0)sum+=arr[i-1];
+            if(carry>0)sum=sum+carry;
+               carry=sum/10;
+            ans.append(to_string(sum%10));
+            
+        }
+        if(carry){
+            ans.append(to_string(carry));
+        }
+        reverse(ans.begin(),ans.end());
+        while(ans[0]=='0')ans.erase(ans.begin());
+        return ans;
+    }
