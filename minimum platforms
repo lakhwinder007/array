@@ -1,3 +1,11 @@
+ start[]={50,120,207,550,700,850}
+ end[]=  {500,550,600,700,900,1000}
+ first train arrive at 50 and will leave at 500 so 1 platform is occupied  second train arrive at 120 but first will leave at 500
+ so a new platform is required, so platform =2 third train arrive at 207 but first train is not left so obviously second is not departured so new  platform , platform =3;
+ fourth train arrive at 550 , till then first has left so platform become empty platform =2 , second also depart so platform =1 and so on.......
+ 
+ 
+ 
  int findPlatform(int arr[], int dep[], int n)
     {
     	// Your code here
