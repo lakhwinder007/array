@@ -1,0 +1,22 @@
+ vector<int> singleNumber(vector<int>& nums) {
+        int x=0;
+        for(int i=0;i<nums.size();i++){
+         x=x^nums[i];
+
+        }
+        int count=0;
+        while(x%2==0){
+           x=x>>1;
+            count++;
+        }
+        int bucketodd=0,bucketeven=0;
+        for(int i=0;i<nums.size();i++){
+                  int temp= nums[i]>>count;
+           if((temp)%2!=0)bucketodd=bucketodd^nums[i];
+            else bucketeven=bucketeven^nums[i];
+        }
+        vector<int>ans;
+        ans.push_back(bucketodd);
+        ans.push_back(bucketeven);
+        return ans;
+    }
