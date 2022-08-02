@@ -1,0 +1,24 @@
+int max_sum(int a[],int n)
+{
+//Your code here
+int sum=0;
+int cursum=0;
+int prevsum=0;
+int ans=0;
+for(int i=0;i<n;i++){
+    sum=sum+a[i];
+    cursum=cursum+i*a[i];
+}
+prevsum=cursum;
+ans=max(ans,cursum);
+int lastind=n-1;          // this is last ind when we have not rotated the array 
+for(int i=1;i<n;i++){
+    int cur=0;
+     cur=prevsum+sum-n*a[lastind];
+     lastind--;
+     prevsum=cur;
+     ans=max(ans,cur);
+    // cout<<cur<<" "<<ans<<" "<<lastind<<endl;
+}
+return ans;
+}
